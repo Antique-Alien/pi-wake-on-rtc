@@ -34,10 +34,10 @@ utc=True                    # all times in the RTC are stored as utc
 # --- help   ---------------------------------------------------------------
 
 def help():
-  """
-  Dump list of available commands
-  """
-  print """
+  
+  #Dump list of available commands
+  
+  print ("""
 Available commands (date and time are synonyms):
      help                                - dump list of available commands
      init                                - initialize RTC
@@ -52,15 +52,15 @@ Available commands (date and time are synonyms):
      on    alarm1|alarm2                 - turn alarm1/alarm2 on
      off   alarm1|alarm2                 - turn alarm1/alarm2 off
      clear alarm1|alarm2                 - clear alarm1/alarm2-flag
-  """
+  """)
 
 # --- init   ---------------------------------------------------------------
 
 def init(rtc,argv):
-  """
-  Initialize RTC (set rtc-datetime to system-datetime, set alarm-times
-  and clear/disable alarms)
-  """
+  
+  #Initialize RTC (set rtc-datetime to system-datetime, set alarm-times
+  #and clear/disable alarms)
+  
   rtc.write_system_datetime_now()
   rtc.set_alarm_time(1,datetime.datetime.now())
   rtc.clear_alarm(1)
@@ -83,21 +83,21 @@ def show(rtc,argv):
     show(rtc,["alarm1"])
     show(rtc,["alarm2"])
   elif argv[0] == "date" or argv[0] == "time":
-    print "date:   %s" % rtc.read_datetime()
+    print ("date:   %s" % rtc.read_datetime())
   elif argv[0] == "alarm1":
-    print "alarm1: %s" % rtc.get_alarm_time(1)
+    print ("alarm1: %s" % rtc.get_alarm_time(1))
     (enabled,fired) = rtc.get_alarm_state(1)
-    print "        (enabled: %s)" % enabled
-    print "        (fired:   %s)" % fired
+    print ("        (enabled: %s)" % enabled)
+    print ("        (fired:   %s)" % fired)
   elif argv[0] == "alarm2":
-    print "alarm2: %s" % rtc.get_alarm_time(2)
+    print ("alarm2: %s" % rtc.get_alarm_time(2))
     (enabled,fired) = rtc.get_alarm_state(2)
-    print "        (enabled: %s)" % enabled
-    print "        (fired:   %s)" % fired
+    print ("        (enabled: %s)" % enabled)
+    print ("        (fired:   %s)" % fired)
   elif argv[0] == "sys":
-    print "sys:    %s" % datetime.datetime.now()
+    print ("sys:    %s" % datetime.datetime.now())
   else:
-    print "invalid argument"
+    print ("invalid argument")
 
 # --- dump   ---------------------------------------------------------------
 
