@@ -62,9 +62,9 @@ AT24C32ADDR = 0x57  #older boards use 0x56
 I2C_PORT = 1 #valid ports are 0 and 1
 
 def _bcd_to_int(bcd):
-    """
-    Decode a 2x4bit BCD to a integer.
-    """
+    
+    #Decode a 2x4bit BCD to a integer.
+    
     out = 0
     for digit in (bcd >> 4, bcd):
         for value in (1, 2, 4, 8):
@@ -76,9 +76,9 @@ def _bcd_to_int(bcd):
 
 
 def _int_to_bcd(number):
-    """
-    Encode a one or two digits number to the BCD format.
-    """
+    
+    #Encode a one or two digits number to the BCD format.
+    
     bcd = 0
     for idx in (number // 10, number % 10):
         for value in (8, 4, 2, 1):
@@ -522,7 +522,7 @@ class ds3231(object):
         """
         ???
         """
-        addr1 = address / 256
+        addr1 = address // 256
         addr0 = address % 256
         self._bus.write_i2c_block_data(self._at24c32_addr, addr1, [addr0])
 
