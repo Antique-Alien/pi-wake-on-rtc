@@ -116,7 +116,7 @@ def dump(rtc,argv):
   elif argv[0] == "control":
     print ("control:        %s" % rtc.dump_register(rtc._CONTROL_REGISTER))
   elif argv[0] == "status":
-    print 0("status:         %s" % rtc.dump_register(rtc._STATUS_REGISTER)
+    print ("status:         %s" % rtc.dump_register(rtc._STATUS_REGISTER))
   elif argv[0] == "date" or argv[0] == "time":
     print ("date  (sec):   %s" % rtc.dump_register(rtc._SECONDS_REGISTER))
     print ("date  (min):   %s" % rtc.dump_register(rtc._MINUTES_REGISTER))
