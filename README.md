@@ -52,7 +52,7 @@ Installation
 
 Clone the archive and then run the install-command from the tools-directory:
 
-    git clone https://github.com/bablokb/pi-wake-on-rtc.git
+    git clone https://github.com/Antique-Alien/pi-wake-on-rtc.git
     cd pi-wake-on-rtc
     sudo tools/install
 
