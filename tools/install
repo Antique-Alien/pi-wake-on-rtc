@@ -70,9 +70,9 @@ configure_system() {
     echo -e "[INFO] configuring /boot/firmware/config.txt" 2>&1
     echo "dtparam=i2c_arm=on" >> /boot/firmware/config.txt
   fi
-  if ! grep -q "^dtoverlay=i2c-rtc,ds3231" /boot/firmware/config.txt; then
+  if ! grep -q "^dtoverlay=gpio-poweroff,gpiopin=4" /boot/firmware/config.txt; then
     echo -e "[INFO] configuring /boot/firmware/config.txt" 2>&1
-    echo "dtoverlay=i2c-rtc,ds3231" >> /boot/firmware/config.txt
+    echo "dtoverlay=gpio-poweroff,gpiopin=4" >> /boot/firmware/config.txt
   fi
 
   if ! grep -q "^i2c-dev" /etc/modules; then
