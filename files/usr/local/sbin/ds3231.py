@@ -72,7 +72,7 @@ def _bcd_to_int(bcd):
                 out += value
             digit >>= 1
         out *= 10
-    return out / 10
+    return int(out / 10)
 
 
 def _int_to_bcd(number):
